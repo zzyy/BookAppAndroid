@@ -1,7 +1,5 @@
-import io.gitlab.arturbosch.detekt.Detekt
-import io.gitlab.arturbosch.detekt.DetektCreateBaselineTask
-
 plugins {
+
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
 }
@@ -20,16 +18,27 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        getByName("debug") {
+            keyAlias = "androidKey"
+            keyPassword = "123456"
+            storeFile = file("androidSignKey")
+            storePassword = "123456"
+            enableV1Signing = true
+        }
+    }
+
     buildTypes {
         debug {
+            signingConfig = signingConfigs.getByName("debug")
         }
 
         release {
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            signingConfig = signingConfigs.getByName("debug")
         }
     }
-
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -38,7 +47,6 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-
     buildFeatures {
         viewBinding = true
         //noinspection DataBindingWithoutKapt
