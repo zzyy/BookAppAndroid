@@ -22,10 +22,13 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#6200EE"
             app:layout_constraintTop_toTopOf="parent"
-            app:title="Add book"
-            app:titleTextColor="@color/white" />
+            app:title="Add book" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            app:layout_constraintBottom_toBottomOf="@+id/toolbar" />
 
         <LinearLayout
             android:layout_width="match_parent"

@@ -17,6 +17,9 @@
         android:theme="@style/Theme.BookInfoApp"
         tools:targetApi="31">
         <activity
+            android:name=".feature.update.AddOrUpdateBookActivity"
+            android:exported="false" />
+        <activity
             android:name=".feature.detail.BookDetailActivity"
             android:exported="false" />
         <activity
