@@ -16,7 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BookInfoApp"
         tools:targetApi="31">
-
+        <activity
+            android:name=".feature.detail.BookDetailActivity"
+            android:exported="false" />
         <activity
             android:name=".feature.list.BooksInfoListActivity"
             android:exported="true"
